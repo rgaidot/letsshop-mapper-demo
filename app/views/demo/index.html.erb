@@ -1,0 +1,16 @@
+<div id="product_list" class="span-15 colborder">
+  <h2>Discount</h2>
+  <div class="discount">
+    <%= render :partial => "entry", :locals => { :entries => @feed_select.entries } %>
+  </div>
+  <hr class="space"/>
+  <h2>New</h2>
+  <div class="new">
+    <%= render :partial => "entry", :locals => { :entries => @feed_new.entries } %>
+  </div>
+</div>
+<div id="sidebar" class="span-8 last">
+  <h2>Sidebar</h2>
+  <p><%= image_tag("banner_300x250.gif")%></p>
+  <p><%= image_tag("banner_300x600.gif")%></p>
+</div>

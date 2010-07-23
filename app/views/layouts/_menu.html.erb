@@ -1,0 +1,23 @@
+<div id="menu" class="span-24 last">
+  <ul class="menu">
+    <li><%= link_to "Vêtements bébé", navigate_path(:c => "bébé/vêtements_4509") %>
+      <%= tree_for("bébé/vêtements", LSHOP.get_tree("360926544-4509-852044422").categories) %>
+    </li>
+    <li><%= link_to "Poussettes", navigate_path(:c => "bébé/poussettes_4497") %>
+      <%= tree_for("bébé/poussettes", LSHOP.get_tree("373357954-4497-703909568").categories) %>
+    </li>
+    <li><%= link_to "Repas", navigate_path(:c => "bébé/repas_4489") %>
+      <%= tree_for("bébé/repas", LSHOP.get_tree("588517893-4489-805257907").categories) %>
+    </li>
+    <li><%= link_to "Jeux et jouets", navigate_path(:c => "bébé/jeux_et_jouets_4474") %>
+      <%= tree_for("bébé/jeux_et_jouets", LSHOP.get_tree("546857955-4474-395478693").categories) %>
+    </li>
+    
+    <li><%= link_to "Chambres", navigate_path(:c => "bébé/chambres_4479") %>
+      <%= tree_for("bébé/chambres", LSHOP.get_tree("702145585-4479-275815597").categories) %>
+    </li>
+    <li><%= link_to "Sécurité", navigate_path(:c => "bébé/sécurité_4505") %>
+      <%= tree_for("bébé/sécurité", LSHOP.get_tree("130850260-4505-91289008").categories) %>
+    </li>
+  </ul>
+</div>

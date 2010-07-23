@@ -1,0 +1,19 @@
+<% if @colors.count > 0 %>
+<h3>Color</h3>
+<div class="scroll">
+<ul>
+<% @colors.each do |c| %>
+  <% unless c.title.nil? %>
+    <li>
+      <% unless params[:q].nil? %>
+        <%= link_to c.title.capitalize, 
+        navigate_by_search_path(:q => params[:q].nil? ? "" : params[:q], :f => "#{c.type}/#{c.title}") %>
+      <% else %>
+        <%= link_to c.title.capitalize, navigate_by_facet_path(:q => params[:q], :c => "#{request.params[:c]}", :f => "#{c.type}/#{c.title}") %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+</div>
+<% end %>

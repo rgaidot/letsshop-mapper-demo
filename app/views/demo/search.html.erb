@@ -1,0 +1,22 @@
+<% if @feed.totalresults.to_i > 0 %>
+<div id="facets_list" class="span-5">
+  <%= render :partial => "category" %>
+  <%= render :partial => "brand" %>
+  <%= render :partial => "color" %>
+</div>
+<div id="sort">
+  <p>Results <%= @feed.startindex %>-<%= @feed.itemsperpage %> 
+    of <%= @feed.totalresults %> - Sort by <%= sort_link("Price", "price asc") %> | <%= sort_link("Discount", "discount desc") %></p>
+</div>
+<div id="product_list" class="span-19 last">
+  <%= render :partial => "entry", :locals => { :entries => @feed.entries } %>
+</div>
+<div id="pagination"  class="span-22 last">
+  <%= will_paginate WillPaginate::Collection.new(params[:page].to_i <= 0 ? 1 : params[:page].to_i, 
+    @feed.itemsperpage, @feed.totalresults), 
+    :params => {:controller => request.request_uri, :action => nil}, 
+    :prev_label => "", :next_label => "",  :renderer => "LinkRenderer"  %>
+</div>
+<% else %>
+  <p>Not match any produtcs.</p>
+<% end %>

@@ -1,0 +1,11 @@
+development:
+  server: letsshop.dev.happun.com
+  key: e0db11796b1a3d08e8c87f3aa252de55
+
+test:
+  server: letsshop.dev.happun.com
+  key: e0db11796b1a3d08e8c87f3aa252de55
+
+production:
+  server: letsshop.dev.happun.com
+  key: e0db11796b1a3d08e8c87f3aa252de55

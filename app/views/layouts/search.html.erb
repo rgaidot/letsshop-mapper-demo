@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Babys - Demo of Let’s Shop Mapper</title>
+  <%= stylesheet_link_tag "screen", "application" %>
+</head>
+<body>
+<div class="container search"> 
+  <div id="header" class="span-24 last">
+    <div class="span-12">
+      <h1><%= link_to "Babys", root_path %></h1>
+    </div>
+    <div id="search_form" class="span-12 last">
+       <%= render :partial => "layouts/search_form" %>
+    </div>
+  </div>
+  <div id="content">
+    <%= render :partial => "layouts/menu" %>
+    <hr />
+    <%= yield %>
+  </div>
+  <hr/>
+  <div id="footer">
+    <p>Babys - Demo of Let’s Shop Mapper</p>
+  </div>
+</div>
+</html>
