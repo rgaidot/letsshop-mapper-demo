@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   map.navigate_by_search '/search/:f/:q', :controller => "demo", :action => "search"
   map.navigate '/:c', :controller => "demo", :action => "search", :requirements => { :c => /(.)+(_\d+$)/ }
   map.navigate_by_facet '/:c/:f', :controller => "demo", :action => "search", :requirements => { :c => /(.)+(_\d+)/ }
+  map.navigate_by_tag '/:f', :controller => "demo", :action => "search"
+  map.product '/product/:id.:format', :controller => "demo", :action => "product"
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   map.root :controller => "demo"

@@ -13,4 +13,10 @@ module DemoHelper
     url = request.request_uri.gsub(/\?.+/, "")
     link_to text, "#{url}?sort=#{target}"
   end
+  def product_link_text(title, id)
+    link_to title, product_path(:id => "#{title}_#{id}.html")
+  end
+  def product_link_img(img, title, id)
+    link_to (image_tag img, :alt => title), product_path(:id => "#{title}_#{id}.html")
+  end
 end

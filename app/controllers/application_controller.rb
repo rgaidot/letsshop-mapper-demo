@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  def set_metas_html(title = nil, description = nil)
+    @title = (title.nil? ? Rails.app : title)
+    @description = (description.nil? ? "" : description)
+  end
 end

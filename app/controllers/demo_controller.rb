@@ -8,7 +8,6 @@ class DemoController < ApplicationController
       :order => "created_at", :sort => "created_at desc"})
   end
   def search
-    @title = "Results"
     p = params[:page].to_i <= 0 ? 1 : params[:page].to_i
     s = params[:page].to_i <= 0 ? 0 : params[:page].to_i * ITEMPSPERPAGE
     q = params[:q].nil? ? nil : params[:q]
@@ -20,6 +19,13 @@ class DemoController < ApplicationController
     @categories = @feed.get_facets_by("category")
     @brands = @feed.get_facets_by("brand")
     @colors = @feed.get_facets_by("color")
+    set_metas_html("Results", "Results")
     render :layout => "search"
+  end
+  def product
+    @product = LSHOP.find({:products => "#{params[:id].split("_").last}"}).entries.first
+    @tags = @product.get_facets_by("category")
+    set_metas_html("#{params[:id].split("_").first}", "#{params[:id].split("_").first}")
+    render :layout => "product"
   end
 end

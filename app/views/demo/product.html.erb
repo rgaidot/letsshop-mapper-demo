@@ -1,0 +1,23 @@
+<div id="product" class="span-24 last">
+  <div class="span-9 colborder product_image">
+    <%= link_to (image_tag @product.thumb, :alt => @product.title), @product.link %>
+  </div>
+  <div class="span-14 last product_metadata">
+    <h3 class="name"><%= @product.title %></h3>
+    <p><span class="supplier"><%= @product.supplier %></span></p>
+    <p class="tags">
+    <% @tags.each do |t| %>
+      <span><%= link_to t.title.capitalize, navigate_by_tag_path(:f => "#{t.type}/#{t.title}") %></span>
+    <% end %>
+    </p>
+    <p class="description"><%= @product.description %></p>
+    <p class="prices">
+      <span class="price"><%= sprintf("%.2f", @product.price) %> <%= @product.currency %></span>
+      <% if @product.discount.to_f > 0 %>
+        <span class="older_price"><%= sprintf("%.2f", @product.older_price) %> <%= @product.currency %></span>
+        <span class="discount"><%= "-#{@product.discount}%" %></span>
+      <% end %>
+    </p>
+    <p><%= link_to "Visit Store", @product.link, :class => "checkout" %></p>
+  </div>
+</div>

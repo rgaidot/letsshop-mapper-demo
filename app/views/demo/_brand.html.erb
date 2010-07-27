@@ -5,12 +5,14 @@
 <% @brands.each do |c| %>
   <% unless c.title.nil? %>
     <li>
-      <% unless params[:q].nil? %>
-        <%= link_to c.title.capitalize, 
+    <% if !params[:q].nil? %>
+      <%= link_to c.title.capitalize, 
         navigate_by_search_path(:q => params[:q].nil? ? "" : params[:q], :f => "#{c.type}/#{c.title}") %>
-      <% else %>
+      <% elsif !request.params[:c].nil? %>
         <%= link_to c.title.capitalize, navigate_by_facet_path(:q => params[:q], :c => "#{request.params[:c]}", :f => "#{c.type}/#{c.title}") %>
-      <% end %>
+      <% else %>
+        <%= link_to c.title.capitalize, navigate_by_tag_path(:f => "#{c.type}/#{c.title}") %>
+    <% end %>
     </li>
   <% end %>
 <% end %>
